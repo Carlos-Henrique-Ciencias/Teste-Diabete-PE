@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importando suas páginas
-import Cadastro from './path_to_file/Cadastro';
-import Teste1 from './path_to_file/Teste1';
-import Teste2 from './path_to_file/Teste2';
-import Teste3 from './path_to_file/Teste3';
-import Final from './path_to_file/Final';
+import Cadastro from './paginas/inicio';
+import Teste1 from './paginas/teste1';
+import Teste2 from './paginas/teste2';
+import Teste3 from './paginas/teste3';
+import Final from './paginas/final';
 
 const Stack = createNativeStackNavigator();
 
