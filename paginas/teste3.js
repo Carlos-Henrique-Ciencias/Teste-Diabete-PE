@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
-const Teste1 = ({ navigation }) => {
-    const [teste_1, setTeste_1] = useState(false);
+const Teste3 = ({ navigation }) => {
+    const [listaBotoesTeste3, setListaBotoesTeste3] = useState([false, false, false, false, false, false, false, false, false]);
+
+    const handleButtonPress = (index) => {
+        let newLista = [...listaBotoesTeste3];
+        newLista[index] = true;
+        setListaBotoesTeste3(newLista);
+    };
+
+    const navigateToFinal = () => {
+        navigation.navigate('Final', { listaBotoesTeste3: listaBotoesTeste3 });
+    }
 
     return (
         <View style={styles.container}>
-            <Text>Teste 1</Text>
+            <Text>Teste 3</Text>
+
+            {/* Botões */}
+            <TouchableOpacity style={styles.roundButton1} onPress={() => handleButtonPress(0)} />
+            <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)} />
+            <TouchableOpacity style={styles.roundButton3} onPress={() => handleButtonPress(2)} />
+            <TouchableOpacity style={styles.roundButton4} onPress={() => handleButtonPress(3)} />
+            <TouchableOpacity style={styles.roundButton5} onPress={() => handleButtonPress(4)} />
+            <TouchableOpacity style={styles.roundButton6} onPress={() => handleButtonPress(5)} />
+            <TouchableOpacity style={styles.roundButton7} onPress={() => handleButtonPress(6)} />
+            <TouchableOpacity style={styles.roundButton8} onPress={() => handleButtonPress(7)} />
+            <TouchableOpacity style={styles.roundButton9} onPress={() => handleButtonPress(8)} />
             
-            {/* Botão de Exemplo 1 */}
-            <TouchableOpacity 
-                style={styles.button1}
-                onPress={() => {
-                    setTeste_1(true);
-                    navigation.navigate('Teste2', { teste_1 });
-                }}
-            >
-                <Text style={styles.buttonText}>Opção 1</Text>
+            <TouchableOpacity style={styles.navigateButton} onPress={navigateToFinal}>
+                <Text style={styles.navigateButtonText}>Ir para o Final</Text>
             </TouchableOpacity>
-            
-            {/* Botão de Exemplo 2 */}
-            <TouchableOpacity 
-                style={styles.button2}
-                onPress={() => {
-                    // Aqui você pode adicionar sua lógica para este botão
-                }}
-            >
-                <Text style={styles.buttonText}>Opção 2</Text>
-            </TouchableOpacity>
-            
-            {/* Adicione mais botões conforme necessário, seguindo a mesma estrutura. */}
         </View>
     );
+};
+
+const buttonSize = Dimensions.get('window').width * 0.25;
+
+const roundButtonBase = {  
+    width: buttonSize, 
+    height: buttonSize,
+    borderRadius: buttonSize / 2,
+    backgroundColor: 'red',
+    position: 'absolute'
 };
 
 const styles = StyleSheet.create({
@@ -40,24 +52,63 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         justifyContent: 'center'
     },
-    button1: {
-        marginVertical: 10,
-        padding: 15,
-        backgroundColor: '#2196F3',
-        borderRadius: 5
-        // Adicione outros estilos para o botão 1 aqui
+    roundButton1: {  
+        ...roundButtonBase,
+        top: '10%',
+        left: '10%'
     },
-    button2: {
-        marginVertical: 10,
-        padding: 15,
+    roundButton2: {  
+        ...roundButtonBase,
+        top: '10%',
+        left: '45%'  // Centrado horizontalmente
+    },
+    roundButton3: {  
+        ...roundButtonBase,
+        top: '10%',
+        right: '10%'  // 10% da direita
+    },
+    roundButton4: {  
+        ...roundButtonBase,
+        top: '45%',  // Centrado verticalmente
+        left: '10%'
+    },
+    roundButton5: {  
+        ...roundButtonBase,
+        top: '45%',
+        left: '45%'
+    },
+    roundButton6: {  
+        ...roundButtonBase,
+        top: '45%',
+        right: '10%'
+    },
+    roundButton7: {  
+        ...roundButtonBase,
+        bottom: '10%',  // Posicionado a 10% do fundo
+        left: '10%'
+    },
+    roundButton8: {  
+        ...roundButtonBase,
+        bottom: '10%',
+        left: '45%'
+    },
+    roundButton9: {  
+        ...roundButtonBase,
+        bottom: '10%',
+        right: '10%'
+    },
+    navigateButton: {
         backgroundColor: '#4CAF50',
-        borderRadius: 5
-        // Adicione outros estilos para o botão 2 aqui
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 20,
+        position: 'relative'  // mudamos de 'absolute' para 'relative' para o botão aparecer logo abaixo dos botões redondos
     },
-    buttonText: {
+    navigateButtonText: {
         color: 'white',
         fontSize: 16
     }
+
 });
 
-export default Teste1;
+export default Teste3;

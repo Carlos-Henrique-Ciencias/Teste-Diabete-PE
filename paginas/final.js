@@ -1,31 +1,52 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-// Componente da página Final
 const Final = ({ route }) => {
-    
-    // Desestruturação das variáveis de teste passadas como parâmetros
-    const { teste_1, teste_2, teste_3 } = route.params;
-    
-    // Array para armazenar os testes positivos
-    let resultados = [];
+  // Suponha que os arrays booleanos são passados como props ao navegar para esta página
+  const { listaBotoesTeste1, listaBotoesTeste2, listaBotoesTeste3 } = route.params;
 
-    // Verifica cada teste e, se for positivo (true), adiciona o nome do teste ao array
-    if (teste_1) resultados.push("Teste 1");
-    if (teste_2) resultados.push("Teste 2");
-    if (teste_3) resultados.push("Teste 3");
+  // Função para verificar se existe um valor 'true' em um array
+  const checkForPositive = (testList) => {
+    
+    
+        if (!testList || !Array.isArray(testList)) return "Dados não fornecidos"; 
+    
+        for (let i = 0; i < testList.length; i++) {
+          if (testList[i]) {
+            return "POSITIVO";
+          }
+        }
+        return "NEGATIVO";
+    };
+    
 
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            
-            {/* Verifica se há algum teste positivo e exibe a mensagem correspondente */}
-            {resultados.length > 0 ? (
-                <Text>Positivo para: {resultados.join(", ")}</Text>
-            ) : (
-                <Text>Os testes não detectaram condições positivas.</Text>
-            )}
-        </View>
-    );
+  // Verificar os resultados dos três testes
+  const resultTeste1 = checkForPositive(listaBotoesTeste1);
+  const resultTeste2 = checkForPositive(listaBotoesTeste2);
+  const resultTeste3 = checkForPositive(listaBotoesTeste3);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.resultText}>
+        O paciente apresenta {resultTeste1} para o teste um, 
+        {resultTeste2} para o teste 2, 
+        e {resultTeste3} para o teste 3.
+      </Text>
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20
+  },
+  resultText: {
+    fontSize: 24,
+    textAlign: 'center'
+  }
+});
 
 export default Final;
