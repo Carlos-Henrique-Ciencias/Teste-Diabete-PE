@@ -8,16 +8,11 @@ const Final = ({ route }) => {
   // Função para verificar se existe um valor 'true' em um array
   const checkForPositive = (testList) => {
     
-    
-        if (!testList || !Array.isArray(testList)) return "Dados não fornecidos"; 
-    
-        for (let i = 0; i < testList.length; i++) {
-          if (testList[i]) {
-            return "POSITIVO";
-          }
-        }
-        return "NEGATIVO";
-    };
+    if(!testList) return "Dados não fornecidos";
+    if(testList.includes(true)) return "POSITIVO";
+    else return "NEGATIVO";
+
+  };
     
 
   // Verificar os resultados dos três testes
@@ -28,7 +23,7 @@ const Final = ({ route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.resultText}>
-        O paciente apresenta {resultTeste1} para o teste um, 
+        O paciente apresenta {resultTeste1} para o teste 1, 
         {resultTeste2} para o teste 2, 
         e {resultTeste3} para o teste 3.
       </Text>

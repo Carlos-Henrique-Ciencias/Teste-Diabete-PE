@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
-const Teste2 = ({ navigation }) => {
+const Teste2 = ({ navigation, route }) => {
     const [listaBotoesTeste2, setListaBotoesTeste2] = useState([false, false, false, false, false, false, false, false, false]);
 
     const handleButtonPress = (index) => {
@@ -11,7 +11,10 @@ const Teste2 = ({ navigation }) => {
     };
 
     const navigateToTeste3 = () => {
-        navigation.navigate('Teste3', { listaBotoesTeste2: listaBotoesTeste2 });
+        navigation.navigate('Teste3', {
+            listaBotoesTeste1: route.params.listaBotoesTeste1,
+            listaBotoesTeste2 
+        });
     }
 
     return (

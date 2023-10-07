@@ -12,10 +12,11 @@ import Final from './paginas/final';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Cadastro">
-        <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="Cadastro" component={Cadastro}/>
         <Stack.Screen name="Teste1" component={Teste1} />
         <Stack.Screen name="Teste2" component={Teste2} />
         <Stack.Screen name="Teste3" component={Teste3} />
