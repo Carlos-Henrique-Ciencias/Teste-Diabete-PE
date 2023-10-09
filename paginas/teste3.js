@@ -11,7 +11,7 @@ const Teste3 = ({ navigation, route }) => {
     };
 
     const navigateToFinal = () => {
-        navigation.navigate('Final', {
+        navigation.navigate('Teste4', {
             listaBotoesTeste1: route.params.listaBotoesTeste1,
             listaBotoesTeste2: route.params.listaBotoesTeste2,
             listaBotoesTeste3 

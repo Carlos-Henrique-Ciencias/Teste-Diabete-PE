@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import peFundo from '../imagensDoCarlao/imagemPe1.png'; // Ajuste o caminho conforme a localização de seu arquivo
 
 const Teste1 = ({ navigation }) => {
     const [listaBotoesTeste1, setListaBotoesTeste1] = useState([false, false, false, false, false, false, false, false, false]);
@@ -15,7 +16,7 @@ const Teste1 = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <ImageBackground source={peFundo} style={styles.container}>
             <Text>Teste 1</Text>
 
             {/* Botões */}
@@ -32,11 +33,11 @@ const Teste1 = ({ navigation }) => {
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToTeste2}>
                 <Text style={styles.navigateButtonText}>Ir para Teste2</Text>
             </TouchableOpacity>
-        </View>
+            </ImageBackground>
     );
 };
 
-const buttonSize = Dimensions.get('window').width * 0.25;
+const buttonSize = Dimensions.get('window').width * 0.10;
 
 const roundButtonBase = {  
     width: buttonSize, 
@@ -50,37 +51,39 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, 
         alignItems: 'center', 
-        justifyContent: 'center'
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
     },
     roundButton1: {  
         ...roundButtonBase,
-        top: '10%',
-        left: '10%'
+        top: '30%',
+        left: '24%'
     },
     roundButton2: {  
         ...roundButtonBase,
-        top: '10%',
-        left: '45%'  // Centrado horizontalmente
+        top: '50%',
+        left: '85%'  // Centrado horizontalmente
     },
     roundButton3: {  
         ...roundButtonBase,
-        top: '10%',
-        right: '10%'  // 10% da direita
+        top: '50%',
+        right: '20%'  // 10% da direita
     },
     roundButton4: {  
         ...roundButtonBase,
-        top: '45%',  // Centrado verticalmente
+        top: '50%',  // Centrado verticalmente
         left: '10%'
     },
     roundButton5: {  
         ...roundButtonBase,
-        top: '45%',
-        left: '45%'
+        top: '55%',
+        left: '25%'
     },
     roundButton6: {  
         ...roundButtonBase,
-        top: '45%',
-        right: '10%'
+        top: '29%',
+        right: '20%'
     },
     roundButton7: {  
         ...roundButtonBase,
