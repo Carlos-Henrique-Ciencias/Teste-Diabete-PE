@@ -10,11 +10,12 @@ const Teste3 = ({ navigation, route }) => {
         setListaBotoesTeste3(newLista);
     };
 
-    const navigateToFinal = () => {
+    const navigateToTest4 = () => {
         navigation.navigate('Teste4', {
+            paciente: route.params.paciente,
             listaBotoesTeste1: route.params.listaBotoesTeste1,
             listaBotoesTeste2: route.params.listaBotoesTeste2,
-            listaBotoesTeste3 
+            listaBotoesTeste3: route.params.listaBotoesTeste3
         });
     }
 
@@ -33,7 +34,7 @@ const Teste3 = ({ navigation, route }) => {
             <TouchableOpacity style={styles.roundButton8} onPress={() => handleButtonPress(7)} />
             <TouchableOpacity style={styles.roundButton9} onPress={() => handleButtonPress(8)} />
             
-            <TouchableOpacity style={styles.navigateButton} onPress={navigateToFinal}>
+            <TouchableOpacity style={styles.navigateButton} onPress={navigateToTest4}>
                 <Text style={styles.navigateButtonText}>Ir para o Final</Text>
             </TouchableOpacity>
         </View>
@@ -111,8 +112,6 @@ const styles = StyleSheet.create({
     navigateButtonText: {
         color: 'white',
         fontSize: 16
-    }
+    }});
 
-});
-
-export default Teste3;
+    export default Teste3;

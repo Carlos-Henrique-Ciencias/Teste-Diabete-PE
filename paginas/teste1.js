@@ -12,7 +12,9 @@ const Teste1 = ({ navigation }) => {
     };
 
     const navigateToTeste2 = () => {
-        navigation.navigate('Teste2', { listaBotoesTeste1: listaBotoesTeste1 });
+        navigation.navigate('Teste2', { 
+            paciente: route.params.paciente,
+            listaBotoesTeste1: route.params.listaBotoesTeste1 });
     }
 
     return (
@@ -114,8 +116,4 @@ const styles = StyleSheet.create({
 
 });
 
-
-
-
-// Exportando o componente para ser utilizado em outros lugares do projeto
 export default Teste1;
