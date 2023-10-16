@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from '../imagensDoCarlao/imagemPe2';
+import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import peFundo from './imagemPe2.png';
 
 const Teste3 = ({ navigation, route }) => {
     const [listaBotoesTeste3, setListaBotoesTeste3] = useState([false, false, false, false, false, false, false, false, false]);
@@ -38,7 +38,7 @@ const Teste3 = ({ navigation, route }) => {
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToTest4}>
                 <Text style={styles.navigateButtonText}>Ir para o Final</Text>
             </TouchableOpacity>
-        </ImageBackground>
+            </ImageBackground>
     );
 };
 

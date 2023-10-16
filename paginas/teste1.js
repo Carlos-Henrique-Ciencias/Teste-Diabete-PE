@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from '../imagensDoCarlao/imagemPe2.png'; // Ajuste o caminho conforme a localização de seu arquivo
+import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import peFundo from './imagemPe2.png'; // Ajuste o caminho conforme a localização de seu arquivo
 
-const Teste1 = ({ navigation }) => {
+const Teste1 = ({ navigation, route }) => {
     const [listaBotoesTeste1, setListaBotoesTeste1] = useState([false, false, false, false, false, false, false, false, false]);
 
     const handleButtonPress = (index) => {

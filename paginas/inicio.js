@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
-import peFundo from '../imagensDoCarlao/labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
+import {Text, TextInput, Button, StyleSheet, ImageBackground} from 'react-native';
+import peFundo from './labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
 
 const Cadastro = ({ navigation }) => {
     const [nome, setNome] = useState('');
