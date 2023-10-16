@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import peFundo from './imagemPe1.png';
 
 const Teste6 = ({ navigation, route }) => {
