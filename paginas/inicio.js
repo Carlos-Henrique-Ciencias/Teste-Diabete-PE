@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
-import peFundo from '../imagensDoCarlao/imagemPe1.png'; // Ajuste o caminho conforme a localização de seu arquivo
+import peFundo from '../imagensDoCarlao/labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
 
 const Cadastro = ({ navigation }) => {
     const [nome, setNome] = useState('');
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20,
         width: '100%',
         height: '100%',
     },

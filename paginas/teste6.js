@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import peFundo from '../imagensDoCarlao/imagemPe1.png';
 
 const Teste6 = ({ navigation, route }) => {
     const [listaBotoesTeste6, setListaBotoesTeste6] = useState([false, false, false, false, false, false, false, false, false]);
@@ -23,7 +24,7 @@ const Teste6 = ({ navigation, route }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <ImageBackground source={peFundo} style={styles.container}>
             <Text>Teste 3</Text>
 
             {/* Botões */}
@@ -40,7 +41,7 @@ const Teste6 = ({ navigation, route }) => {
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToFinal}>
                 <Text style={styles.navigateButtonText}>Resultado</Text>
             </TouchableOpacity>
-        </View>
+            </ImageBackground>
     );
 };
 
@@ -56,9 +57,12 @@ const roundButtonBase = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center'
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+        width: '100%',
+        height: '100%',
     },
     roundButton1: {  
         ...roundButtonBase,
