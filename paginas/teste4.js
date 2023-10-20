@@ -27,15 +27,10 @@ const Teste4 = ({ navigation, route }) => {
 
             {/* Botões */}
             <TouchableOpacity style={styles.roundButton1} onPress={() => handleButtonPress(0)} />
-            <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)} />
+            <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)}/>
             <TouchableOpacity style={styles.roundButton3} onPress={() => handleButtonPress(2)} />
-            <TouchableOpacity style={styles.roundButton4} onPress={() => handleButtonPress(3)} />
-            <TouchableOpacity style={styles.roundButton5} onPress={() => handleButtonPress(4)} />
-            <TouchableOpacity style={styles.roundButton6} onPress={() => handleButtonPress(5)} />
-            <TouchableOpacity style={styles.roundButton7} onPress={() => handleButtonPress(6)} />
-            <TouchableOpacity style={styles.roundButton8} onPress={() => handleButtonPress(7)} />
-            <TouchableOpacity style={styles.roundButton9} onPress={() => handleButtonPress(8)} />
-            
+            <TouchableOpacity style={styles.roundButton4} onPress={() => handleButtonPress(3)}/>
+           
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToTest5}>
                 <Text style={styles.navigateButtonText}>Próximo</Text>
             </TouchableOpacity>
@@ -43,7 +38,7 @@ const Teste4 = ({ navigation, route }) => {
     );
 };
 
-const buttonSize = Dimensions.get('window').width * 0.25;
+const buttonSize = Dimensions.get('window').width * 0.10;
 
 const roundButtonBase = {  
     width: buttonSize, 
@@ -64,49 +59,25 @@ const styles = StyleSheet.create({
     },
     roundButton1: {  
         ...roundButtonBase,
-        top: '10%',
-        left: '10%'
+        top: '53%',
+        left: '85%'  // meio pé esquerdo, 1º
     },
     roundButton2: {  
         ...roundButtonBase,
-        top: '10%',
-        left: '45%'  // Centrado horizontalmente
+        bottom: '40%',
+        right: '30%'// pe esquerdo, meio, 1°
     },
     roundButton3: {  
         ...roundButtonBase,
-        top: '10%',
-        right: '10%'  // 10% da direita
+        bottom: '40%',
+        left: '29%'// pe esquerdo, meio, 1°
     },
     roundButton4: {  
         ...roundButtonBase,
-        top: '45%',  // Centrado verticalmente
-        left: '10%'
+        bottom: '43%',
+        right: '80%'// pe esquerdo, meio, 1°
     },
-    roundButton5: {  
-        ...roundButtonBase,
-        top: '45%',
-        left: '45%'
-    },
-    roundButton6: {  
-        ...roundButtonBase,
-        top: '45%',
-        right: '10%'
-    },
-    roundButton7: {  
-        ...roundButtonBase,
-        bottom: '10%',  // Posicionado a 10% do fundo
-        left: '10%'
-    },
-    roundButton8: {  
-        ...roundButtonBase,
-        bottom: '10%',
-        left: '45%'
-    },
-    roundButton9: {  
-        ...roundButtonBase,
-        bottom: '10%',
-        right: '10%'
-    },
+    
     navigateButton: {
         backgroundColor: '#4CAF50',
         padding: 10,
