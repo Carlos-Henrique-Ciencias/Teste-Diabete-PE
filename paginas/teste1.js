@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from './imagemPe2.png'; // Ajuste o caminho conforme a localização de seu arquivo
+import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, View } from 'react-native';
+import peFundo from './peFundo.jpg'; // Ajuste o caminho conforme a localização de seu arquivo
+import peFundo2 from './peFundo2.png';
 
 const Teste1 = ({ navigation, route }) => {
     const [listaBotoesTeste1, setListaBotoesTeste1] = useState([false, false, false, false, false, false, false, false, false]);
@@ -22,6 +23,7 @@ const Teste1 = ({ navigation, route }) => {
             {/*<Text>Teste 1</Text>*/}
 
             {/* Botões */}
+            <View style={styles.overlayContainer}>
             <TouchableOpacity style={styles.roundButton1} onPress={() => handleButtonPress(0)} />
             <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)} />
             <TouchableOpacity style={styles.roundButton3} onPress={() => handleButtonPress(2)} />
@@ -43,6 +45,7 @@ const Teste1 = ({ navigation, route }) => {
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToTeste2}>
                 <Text style={styles.navigateButtonText}>Ir para Teste2</Text>
             </TouchableOpacity>
+            </View>
             </ImageBackground>
     );
 };
@@ -64,6 +67,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '100%',
         height: '100%',
+    },
+    overlayContainer: {
+        width: '80%', 
+        height: '80%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        backgroundImage: peFundo2
     },
     roundButton1: {  
         ...roundButtonBase,

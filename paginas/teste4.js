@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from './imagemPe1.png';
+import peFundo from './labicBg.png';
 
 const Teste4 = ({ navigation, route }) => {
     const [listaBotoesTeste4, setlistaBotoesTeste4] = useState([false, false, false, false, false, false, false, false, false]);

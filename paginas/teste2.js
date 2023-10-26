@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from './imagemPe1.png';
+import peFundo from './labicBg.png';
 
 const Teste2 = ({ navigation, route }) => {
-    const [listaBotoesTeste2, setlistaBotoesTeste2] = useState([false, false, false, false, false, false, false, false, false]);
-
+    const [listaBotoesTeste2, setlistaBotoesTeste2] = useState([false, false, false, false]);
     const handleButtonPress = (index) => {
         let newLista = [...listaBotoesTeste2];
         newLista[index] = true;
