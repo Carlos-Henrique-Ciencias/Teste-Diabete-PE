@@ -19,8 +19,35 @@ const Final = ({ route }) => {
   const resultTeste6 = checkForPositive(listaBotoesTeste6);
 
   const createPDF = async () => {
-    // ... (sem alterações nesta função)
-  };
+    const page = PDFPage.create()
+      .setMediaBox(200, 200)
+      .drawText('Resultados dos Testes:', {
+          x: 10,
+          y: 180,
+          fontSize: 15
+      })
+      .drawText(`Teste 1: ${resultTeste1}`, { x: 10, y: 160, fontSize: 10 })
+      .drawText(`Teste 2: ${resultTeste2}`, { x: 10, y: 140, fontSize: 10 })
+      .drawText(`Teste 3: ${resultTeste3}`, { x: 10, y: 120, fontSize: 10 })
+      .drawText(`Teste 4: ${resultTeste4}`, { x: 10, y: 100, fontSize: 10 })
+      .drawText(`Teste 5: ${resultTeste5}`, { x: 10, y: 80, fontSize: 10 })
+      .drawText(`Teste 6: ${resultTeste6}`, { x: 10, y: 60, fontSize: 10 });
+
+    const docsDir = PDFLib.getDocumentsDirectory();
+    const pdfPath = `${docsDir}/resultado.pdf`;
+    
+    PDFDocument.create(pdfPath)
+      .addPages(page)
+      .write() // retorna uma promessa
+      .then(path => {
+          console.log('PDF criado em: ' + path);
+          // Aqui, você pode fazer algo após o PDF ser criado, como mostrar uma mensagem ao usuário
+      })
+      .catch(error => {
+          console.error(error);
+      });
+}
+
   
   return (
     <View style={styles.container}>

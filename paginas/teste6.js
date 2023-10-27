@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from './imagemPe1.png';
+import {Text, Image, View, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import labicBg from './labicBg.png';
+import peFundo2 from './peFundo3.png'
 
 const Teste6 = ({ navigation, route }) => {
-    const [listaBotoesTeste6, setListaBotoesTeste6] = useState([false, false, false, false, false, false, false, false, false]);
-
+    const [listaBotoesTeste6, setlistaBotoesTeste6] = useState([false, false, false, false]);
     const handleButtonPress = (index) => {
         let newLista = [...listaBotoesTeste6];
         newLista[index] = true;
-        setListaBotoesTeste6(newLista);
+        setlistaBotoesTeste6(newLista);
     };
 
     const navigateToFinal = () => {
@@ -19,33 +19,32 @@ const Teste6 = ({ navigation, route }) => {
             listaBotoesTeste3: route.params.listaBotoesTeste3,
             listaBotoesTeste4: route.params.listaBotoesTeste4,
             listaBotoesTeste5: route.params.listaBotoesTeste5,
-            listaBotoesTeste6: route.params.listaBotoesTeste6
+            listaBotoesTeste6: listaBotoesTeste6
         });
     }
 
     return (
-        <ImageBackground source={peFundo} style={styles.container}>
-            <Text>Teste 3</Text>
+        <ImageBackground source={labicBg} style={styles.container}>
+            <Image source={peFundo2} style={styles.peFundo2Style} />
+            <Text>DIAPASÃO</Text>
 
             {/* Botões */}
+            <View style={styles.overlayContainer}>
             <TouchableOpacity style={styles.roundButton1} onPress={() => handleButtonPress(0)} />
-            <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)} />
+            <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)}/>
             <TouchableOpacity style={styles.roundButton3} onPress={() => handleButtonPress(2)} />
-            <TouchableOpacity style={styles.roundButton4} onPress={() => handleButtonPress(3)} />
-            <TouchableOpacity style={styles.roundButton5} onPress={() => handleButtonPress(4)} />
-            <TouchableOpacity style={styles.roundButton6} onPress={() => handleButtonPress(5)} />
-            <TouchableOpacity style={styles.roundButton7} onPress={() => handleButtonPress(6)} />
-            <TouchableOpacity style={styles.roundButton8} onPress={() => handleButtonPress(7)} />
-            <TouchableOpacity style={styles.roundButton9} onPress={() => handleButtonPress(8)} />
+            <TouchableOpacity style={styles.roundButton4} onPress={() => handleButtonPress(3)}/>
+           
             
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToFinal}>
                 <Text style={styles.navigateButtonText}>Resultado</Text>
             </TouchableOpacity>
-            </ImageBackground>
+            </View>
+        </ImageBackground>
     );
 };
 
-const buttonSize = Dimensions.get('window').width * 0.25;
+const buttonSize = Dimensions.get('window').width * 0.10;
 
 const roundButtonBase = {  
     width: buttonSize, 
@@ -60,65 +59,55 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20,
-        width: '100%',
-        height: '100%',
     },
+    peFundo2Style: {
+        position: 'absolute',
+        width: '100%', 
+        height: '100%',
+        resizeMode: 'contain',
+    },
+    overlayContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },    
     roundButton1: {  
         ...roundButtonBase,
-        top: '10%',
-        left: '10%'
+        top: '53%',
+        left: '85%'  // meio pé esquerdo, 1º
     },
     roundButton2: {  
         ...roundButtonBase,
-        top: '10%',
-        left: '45%'  // Centrado horizontalmente
+        bottom: '40%',
+        right: '30%'// pe esquerdo, meio, 1°
     },
     roundButton3: {  
         ...roundButtonBase,
-        top: '10%',
-        right: '10%'  // 10% da direita
+        bottom: '40%',
+        left: '29%'// pe esquerdo, meio, 1°
     },
     roundButton4: {  
         ...roundButtonBase,
-        top: '45%',  // Centrado verticalmente
-        left: '10%'
+        bottom: '43%',
+        right: '80%'// pe esquerdo, meio, 1°
     },
-    roundButton5: {  
-        ...roundButtonBase,
-        top: '45%',
-        left: '45%'
-    },
-    roundButton6: {  
-        ...roundButtonBase,
-        top: '45%',
-        right: '10%'
-    },
-    roundButton7: {  
-        ...roundButtonBase,
-        bottom: '10%',  // Posicionado a 10% do fundo
-        left: '10%'
-    },
-    roundButton8: {  
-        ...roundButtonBase,
-        bottom: '10%',
-        left: '45%'
-    },
-    roundButton9: {  
-        ...roundButtonBase,
-        bottom: '10%',
-        right: '10%'
-    },
+    
     navigateButton: {
         backgroundColor: '#4CAF50',
         padding: 10,
         borderRadius: 5,
-        marginTop: 20,
-        position: 'relative'  // mudamos de 'absolute' para 'relative' para o botão aparecer logo abaixo dos botões redondos
+        marginTop: 550,
+          // mudamos de 'absolute' para 'relative' para o botão aparecer logo abaixo dos botões redondos
+        right: '20%',
+        
     },
     navigateButtonText: {
         color: 'white',
         fontSize: 16
-    }});
+    }
+
+});
 
     export default Teste6;

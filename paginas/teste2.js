@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from './labicBg.png';
+import {Text, Image, View, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import labicBg from './labicBg.png';
+import peFundo2 from './peFundo3.png'
 
 const Teste2 = ({ navigation, route }) => {
     const [listaBotoesTeste2, setlistaBotoesTeste2] = useState([false, false, false, false]);
@@ -14,16 +15,17 @@ const Teste2 = ({ navigation, route }) => {
         navigation.navigate('Teste3', {
             paciente: route.params.paciente,
             listaBotoesTeste1: route.params.listaBotoesTeste1,
-            listaBotoesTeste2: route.params.listaBotoesTeste2
+            listaBotoesTeste2: listaBotoesTeste2
         });
     }
 
     return (
-        <ImageBackground source={peFundo} style={styles.container}>
-            <Text>Teste 2</Text>
+        <ImageBackground source={labicBg} style={styles.container}>
+            <Image source={peFundo2} style={styles.peFundo2Style} />
+            <Text>Risco de Doença Arterial</Text>
 
             {/* Botões */}
-            
+            <View style={styles.overlayContainer}>
             <TouchableOpacity style={styles.roundButton1} onPress={() => handleButtonPress(0)} />
             <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)}/>
             <TouchableOpacity style={styles.roundButton3} onPress={() => handleButtonPress(2)} />
@@ -31,8 +33,9 @@ const Teste2 = ({ navigation, route }) => {
            
             
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToTest3}>
-                <Text style={styles.navigateButtonText}>Ir para o Final</Text>
+                <Text style={styles.navigateButtonText}>Próximo</Text>
             </TouchableOpacity>
+            </View>
         </ImageBackground>
     );
 };
@@ -49,13 +52,23 @@ const roundButtonBase = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-        alignItems: 'center', 
+        flex: 1,
+        alignItems: 'center',
         justifyContent: 'center',
-        width: '100%',
-        height: '100%',
     },
-    
+    peFundo2Style: {
+        position: 'absolute',
+        width: '100%', 
+        height: '100%',
+        resizeMode: 'contain',
+    },
+    overlayContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },    
     roundButton1: {  
         ...roundButtonBase,
         top: '53%',

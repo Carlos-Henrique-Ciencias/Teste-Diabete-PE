@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import peFundo from './imagemPe2.png';
+import {Text,Image, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, View } from 'react-native';
+import labicBg from './labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
+import peFundo2 from './peFundo2.png';
 
 const Teste3 = ({ navigation, route }) => {
-    const [listaBotoesTeste3, setListaBotoesTeste3] = useState([false, false, false, false, false, false, false, false, false]);
+    const [listaBotoesTeste3, setListaBotoesTeste3] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]);
 
     const handleButtonPress = (index) => {
         let newLista = [...listaBotoesTeste3];
@@ -11,20 +12,24 @@ const Teste3 = ({ navigation, route }) => {
         setListaBotoesTeste3(newLista);
     };
 
-    const navigateToTest4 = () => {
-        navigation.navigate('Teste4', {
+    const navigateToTeste4 = () => {
+        navigation.navigate('Teste4', { 
             paciente: route.params.paciente,
             listaBotoesTeste1: route.params.listaBotoesTeste1,
             listaBotoesTeste2: route.params.listaBotoesTeste2,
-            listaBotoesTeste3: route.params.listaBotoesTeste3
+            listaBotoesTeste3: listaBotoesTeste3
+        
         });
     }
 
     return (
-        <ImageBackground source={peFundo} style={styles.container}>
-            <Text>Teste 3</Text>
+        <ImageBackground source={labicBg} style={styles.container}>
+            <Image source={peFundo2} style={styles.peFundo2Style} />
+            
+            {/*<Text>Teste 1</Text>*/}
 
             {/* Botões */}
+            <View style={styles.overlayContainer}>
             <TouchableOpacity style={styles.roundButton1} onPress={() => handleButtonPress(0)} />
             <TouchableOpacity style={styles.roundButton2} onPress={() => handleButtonPress(1)} />
             <TouchableOpacity style={styles.roundButton3} onPress={() => handleButtonPress(2)} />
@@ -43,10 +48,10 @@ const Teste3 = ({ navigation, route }) => {
             <TouchableOpacity style={styles.roundButton16} onPress={() => handleButtonPress(15)} />
             <TouchableOpacity style={styles.roundButton17} onPress={() => handleButtonPress(16)} />
             <TouchableOpacity style={styles.roundButton18} onPress={() => handleButtonPress(17)} />
-            
-            <TouchableOpacity style={styles.navigateButton} onPress={navigateToTest4}>
-                <Text style={styles.navigateButtonText}>Ir para o Final</Text>
+            <TouchableOpacity style={styles.navigateButton} onPress={navigateToTeste4}>
+                <Text style={styles.navigateButtonText}>Ir para Teste4</Text>
             </TouchableOpacity>
+            </View>
             </ImageBackground>
     );
 };
@@ -63,11 +68,22 @@ const roundButtonBase = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-        alignItems: 'center', 
+        flex: 1,
+        alignItems: 'center',
         justifyContent: 'center',
-        width: '100%',
+    },
+    peFundo2Style: {
+        position: 'absolute',
+        width: '100%', 
         height: '100%',
+        resizeMode: 'contain',
+    },
+    overlayContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
     },
     roundButton1: {  
         ...roundButtonBase,
@@ -176,4 +192,4 @@ const styles = StyleSheet.create({
 
 });
 
-    export default Teste3;
+export default Teste3;

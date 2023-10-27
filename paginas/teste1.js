@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, View } from 'react-native';
-import peFundo from './peFundo.jpg'; // Ajuste o caminho conforme a localização de seu arquivo
+import {Text,Image, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, View } from 'react-native';
+import labicBg from './labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
 import peFundo2 from './peFundo2.png';
 
 const Teste1 = ({ navigation, route }) => {
-    const [listaBotoesTeste1, setListaBotoesTeste1] = useState([false, false, false, false, false, false, false, false, false]);
+    const [listaBotoesTeste1, setListaBotoesTeste1] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]);
 
     const handleButtonPress = (index) => {
         let newLista = [...listaBotoesTeste1];
@@ -15,12 +15,14 @@ const Teste1 = ({ navigation, route }) => {
     const navigateToTeste2 = () => {
         navigation.navigate('Teste2', { 
             paciente: route.params.paciente,
-            listaBotoesTeste1: route.params.listaBotoesTeste1 });
+            listaBotoesTeste1: listaBotoesTeste1 });
     }
 
     return (
-        <ImageBackground source={peFundo} style={styles.container}>
-            {/*<Text>Teste 1</Text>*/}
+        <ImageBackground source={labicBg} style={styles.container}>
+            <Image source={peFundo2} style={styles.peFundo2Style} />
+            
+            <Text>Risco de Doença Arterial</Text>
 
             {/* Botões */}
             <View style={styles.overlayContainer}>
@@ -43,7 +45,7 @@ const Teste1 = ({ navigation, route }) => {
             <TouchableOpacity style={styles.roundButton17} onPress={() => handleButtonPress(16)} />
             <TouchableOpacity style={styles.roundButton18} onPress={() => handleButtonPress(17)} />
             <TouchableOpacity style={styles.navigateButton} onPress={navigateToTeste2}>
-                <Text style={styles.navigateButtonText}>Ir para Teste2</Text>
+                <Text style={styles.navigateButtonText}>Próximo</Text>
             </TouchableOpacity>
             </View>
             </ImageBackground>
@@ -62,19 +64,22 @@ const roundButtonBase = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        width: '100%',
-        height: '100%',
-    },
-    overlayContainer: {
-        width: '80%', 
-        height: '80%',
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'transparent',
-        backgroundImage: peFundo2
+    },
+    peFundo2Style: {
+        position: 'absolute',
+        width: '100%', 
+        height: '100%',
+        resizeMode: 'contain',
+    },
+    overlayContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
     },
     roundButton1: {  
         ...roundButtonBase,
