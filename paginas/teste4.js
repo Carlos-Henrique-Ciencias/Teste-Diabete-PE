@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Text, Image, View, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import labicBg from './labicBg.png';
-import peFundo2 from './peFundo3.jpeg'
+import peFundo2 from './peFundo3.png'
 
 const Teste4 = ({ navigation, route }) => {
     const [listaBotoesTeste4, setlistaBotoesTeste4] = useState([false, false, false, false]);
@@ -24,7 +24,7 @@ const Teste4 = ({ navigation, route }) => {
     return (
         <ImageBackground source={labicBg} style={styles.container}>
             <Image source={peFundo2} style={styles.peFundo2Style} />
-            <Text>Percepção de Pressão</Text>
+            
 
             {/* Botões */}
             <View style={styles.overlayContainer}>
@@ -96,14 +96,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#4CAF50',
         padding: 10,
         borderRadius: 5,
-        marginTop: 550,
-          // mudamos de 'absolute' para 'relative' para o botão aparecer logo abaixo dos botões redondos
-        right: '20%',
+        position: 'absolute', // Posiciona o botão sobre os outros elementos
+        bottom: 20, // Espaço a partir da parte inferior da tela
+        right: 20, // Espaço a partir da borda direita da tela
+        alignSelf: 'center', // Centraliza o botão no eixo horizontal
+        width: '60%', // Define uma largura para o botão
+    
         
     },
     navigateButtonText: {
         color: 'white',
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'center',
     }
 
 });

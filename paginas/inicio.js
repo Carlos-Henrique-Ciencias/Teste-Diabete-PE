@@ -8,8 +8,12 @@ const Cadastro = ({ navigation }) => {
     const [cpf, setCpf] = useState(''); // Adicionando o CPF
 
     const handleCadastro = () => {
-        const paciente = [nome, idade, cpf]; // Salvando os valores em uma lista
-        navigation.navigate('Teste1', { paciente:paciente });
+        const paciente = {
+            nome: nome,
+            idade: idade,
+            cpf: cpf
+        };
+        navigation.navigate('Teste1', { paciente: paciente });
     }
 
 

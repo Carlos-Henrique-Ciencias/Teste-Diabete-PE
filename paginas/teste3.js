@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Text,Image, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, View } from 'react-native';
 import labicBg from './labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
-import peFundo2 from './peFundo2.jpeg';
+import peFundo2 from './peFundo2.png';
 
 const Teste3 = ({ navigation, route }) => {
     const [listaBotoesTeste3, setListaBotoesTeste3] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]);
@@ -180,14 +180,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#4CAF50',
         padding: 10,
         borderRadius: 5,
-        marginTop: 550,
-          // mudamos de 'absolute' para 'relative' para o botão aparecer logo abaixo dos botões redondos
-        right: '20%',
+        position: 'absolute', // Posiciona o botão sobre os outros elementos
+        bottom: 20, // Espaço a partir da parte inferior da tela
+        right: 20, // Espaço a partir da borda direita da tela
+        alignSelf: 'center', // Centraliza o botão no eixo horizontal
+        width: '60%', // Define uma largura para o botão
+    
         
     },
     navigateButtonText: {
         color: 'white',
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'center',
     }
 
 });

@@ -24,14 +24,14 @@ export default function App() {
           component={SplashScreen} 
           options={{ headerShown: false }} // Esconde o cabeçalho para a SplashScreen
         />
-        <Stack.Screen name="Cadastro" component={Cadastro} />
-        <Stack.Screen name="Teste1" component={Teste1} />
-        <Stack.Screen name="Teste2" component={Teste2} />
-        <Stack.Screen name="Teste3" component={Teste3} />
-        <Stack.Screen name="Teste4" component={Teste4} />
-        <Stack.Screen name="Teste5" component={Teste5} />
-        <Stack.Screen name="Teste6" component={Teste6} />
-        <Stack.Screen name="Final" component={Final} />
+        <Stack.Screen name="Cadastro" component={Cadastro}/>
+        <Stack.Screen name="Teste1" component={Teste1} options={{ title: 'Test Doença Arterial, Planta' }}/>
+        <Stack.Screen name="Teste2" component={Teste2} options={{ title: 'Test Doença Arterial, Dorso' }}/>
+        <Stack.Screen name="Teste3" component={Teste3} options={{ title: 'Test Diapasão, Planta' }}/>
+        <Stack.Screen name="Teste4" component={Teste4} options={{ title: 'Test Diapasão Arterial, Dorso' }}/>
+        <Stack.Screen name="Teste5" component={Teste5} options={{ title: 'Test Percepção Pressão, Planta' }}/>
+        <Stack.Screen name="Teste6" component={Teste6} options={{ title: 'Test Percepção Pressão, Dorso' }}/>
+        <Stack.Screen name="Final" component={Final} options={{ title: 'Exibição Rápida' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
