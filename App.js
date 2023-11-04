@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importando suas páginas
+import SplashScreen from './paginas/SplashScreen'; // Certifique-se de que o nome do arquivo está correto
 import Cadastro from './paginas/inicio';
 import Teste1 from './paginas/teste1';
 import Teste2 from './paginas/teste2';
@@ -17,7 +18,12 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Cadastro">
+      <Stack.Navigator initialRouteName="SplashScreen">
+        <Stack.Screen 
+          name="SplashScreen" 
+          component={SplashScreen} 
+          options={{ headerShown: false }} // Esconde o cabeçalho para a SplashScreen
+        />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Teste1" component={Teste1} />
         <Stack.Screen name="Teste2" component={Teste2} />

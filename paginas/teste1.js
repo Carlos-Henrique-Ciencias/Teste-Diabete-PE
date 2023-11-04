@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Text,Image, StyleSheet, TouchableOpacity, Dimensions, ImageBackground, View } from 'react-native';
 import labicBg from './labicBg.png'; // Ajuste o caminho conforme a localização de seu arquivo
-import peFundo2 from './peFundo2.png';
+import peFundo2 from './peFundo2.jpg';
 
 const Teste1 = ({ navigation, route }) => {
     const [listaBotoesTeste1, setListaBotoesTeste1] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]);

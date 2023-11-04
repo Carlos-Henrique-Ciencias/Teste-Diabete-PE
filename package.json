@@ -16,9 +16,16 @@
     "expo": "^48.0.0",
     "expo-splash-screen": "^0.18.2",
     "expo-status-bar": "~1.4.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "react": "18.2.0",
     "react-native": "^0.71.13",
-    "react-native-pdf-lib": "^1.0.0"
+    "react-native-blob-util": "^0.19.2",
+    "react-native-html-to-pdf": "^0.12.0",
+    "react-native-pdf": "^6.7.1",
+    "react-native-pdf-lib": "^1.0.0",
+    "expo-print": "~12.2.1",
+    "expo-sharing": "~11.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

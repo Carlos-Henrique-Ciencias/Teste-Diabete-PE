@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import PDFLib, { PDFDocument, PDFPage } from 'react-native-pdf-lib';
+import * as Print from 'expo-print';
+import * as Sharing from 'expo-sharing';
 
 const Final = ({ route }) => {
   const { paciente, listaBotoesTeste1, listaBotoesTeste2, listaBotoesTeste3, listaBotoesTeste4, listaBotoesTeste5, listaBotoesTeste6 } = route.params;
@@ -19,37 +20,29 @@ const Final = ({ route }) => {
   const resultTeste6 = checkForPositive(listaBotoesTeste6);
 
   const createPDF = async () => {
-    const page = PDFPage.create()
-      .setMediaBox(200, 200)
-      .drawText('Resultados dos Testes:', {
-          x: 10,
-          y: 180,
-          fontSize: 15
-      })
-      .drawText(`Teste 1: ${resultTeste1}`, { x: 10, y: 160, fontSize: 10 })
-      .drawText(`Teste 2: ${resultTeste2}`, { x: 10, y: 140, fontSize: 10 })
-      .drawText(`Teste 3: ${resultTeste3}`, { x: 10, y: 120, fontSize: 10 })
-      .drawText(`Teste 4: ${resultTeste4}`, { x: 10, y: 100, fontSize: 10 })
-      .drawText(`Teste 5: ${resultTeste5}`, { x: 10, y: 80, fontSize: 10 })
-      .drawText(`Teste 6: ${resultTeste6}`, { x: 10, y: 60, fontSize: 10 });
-
-    const docsDir = PDFLib.getDocumentsDirectory();
-    const pdfPath = `${docsDir}/resultado.pdf`;
+    const htmlContent = `
+    <h2>Resultados dos Testes:</h2>
+    <p>Teste 1: ${resultTeste1}</p>
+    <p>Teste 2: ${resultTeste2}</p>
+    <p>Teste 3: ${resultTeste3}</p>
+    <p>Teste 4: ${resultTeste4}</p>
+    <p>Teste 5: ${resultTeste5}</p>
+    <p>Teste 6: ${resultTeste6}</p>
+    `;
+    const pdf = await Print.printToFileAsync({
+      html: htmlContent,
+      base64: false
+    });
     
-    PDFDocument.create(pdfPath)
-      .addPages(page)
-      .write() // retorna uma promessa
-      .then(path => {
-          console.log('PDF criado em: ' + path);
-          // Aqui, você pode fazer algo após o PDF ser criado, como mostrar uma mensagem ao usuário
-      })
-      .catch(error => {
-          console.error(error);
-      });
-}
+    if (pdf.uri) {
+      console.log(`PDF criado em: ${pdf.uri}`);
+      
+      // Aqui compartilha o arquivo PDF
+      await Sharing.shareAsync(pdf.uri);
+  }
+};
 
-  
-  return (
+return (
     <View style={styles.container}>
       <Text style={styles.resultText}>
         O paciente {paciente[0]} apresenta: 

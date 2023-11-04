@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Text, Image, View, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import labicBg from './labicBg.png';
-import peFundo2 from './peFundo3.png'
+import peFundo2 from './peFundo3.jpeg'
 
 const Teste2 = ({ navigation, route }) => {
     const [listaBotoesTeste2, setlistaBotoesTeste2] = useState([false, false, false, false]);
