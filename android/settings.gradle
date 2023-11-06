@@ -1,10 +1,25 @@
 rootProject.name = 'testepe'
 
-apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle");
+def executeNodeCommand(String... command) {
+    def proc = command.execute(null, rootDir)
+    proc.waitFor()
+    if (proc.exitValue() != 0) {
+        throw new GradleException("Execution failed for command: ${command.join(' ')}\n" +
+                "  with error: ${proc.err.text.trim()}\n" +
+                "  with output: ${proc.in.text.trim()}")
+    }
+    return proc.in.text.trim()
+}
+
+def expoPackageJsonPath = executeNodeCommand("node", "--print", "require.resolve('expo/package.json')")
+apply from: new File(expoPackageJsonPath, "../../scripts/autolinking.gradle")
 useExpoModules()
 
-apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')"].execute(null, rootDir).text.trim(), "../native_modules.gradle");
+def reactNativeCliPackageJsonPath = executeNodeCommand("node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')")
+apply from: new File(reactNativeCliPackageJsonPath, "../../native_modules.gradle")
 applyNativeModulesSettingsGradle(settings)
 
 include ':app'
-includeBuild(new File(["node", "--print", "require.resolve('@react-native/gradle-plugin/package.json')"].execute(null, rootDir).text.trim()).getParentFile())
+
+def reactNativeGradlePluginPackageJsonPath = executeNodeCommand("node", "--print", "require.resolve('@react-native/gradle-plugin/package.json')")
+includeBuild(new File(reactNativeGradlePluginPackageJsonPath).getParentFile())

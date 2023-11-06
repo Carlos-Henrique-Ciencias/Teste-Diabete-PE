@@ -60,12 +60,12 @@ const Final = ({ route }) => {
       </div>
       <div class="results">
         <h2>Resultados dos Testes:</h2>
-        <p>Teste 1: ${resultTeste1}</p>
-        <p>Teste 2: ${resultTeste2}</p>
-        <p>Teste 3: ${resultTeste3}</p>
-        <p>Teste 4: ${resultTeste4}</p>
-        <p>Teste 5: ${resultTeste5}</p>
-        <p>Teste 6: ${resultTeste6}</p>
+        <p>Teste Doença Arterial, Planta: ${resultTeste1}</p>
+        <p>Teste Doença Arterial, Dorso: ${resultTeste2}</p>
+        <p>Teste Diapasão, Planta: ${resultTeste3}</p>
+        <p>Teste Diapasão, Dorso: ${resultTeste4}</p>
+        <p>Teste Percepção Pressão, Planta: ${resultTeste5}</p>
+        <p>Teste Percepção Pressão, Dorso: ${resultTeste6}</p>
       </div>
     </div>
     <div class="footer">
